@@ -1,6 +1,6 @@
-package com.example.securitymvctemplate.repositories;
+package com.example.securitymvctemplate.common.repositories;
 
-import com.example.securitymvctemplate.entities.UserEntity;
+import com.example.securitymvctemplate.common.entities.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,4 +1,4 @@
-package com.example.securitymvctemplate.entities;
+package com.example.securitymvctemplate.common.entities;
 
 
 import com.example.securitymvctemplate.role.Role;

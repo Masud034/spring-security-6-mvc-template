@@ -1,4 +1,4 @@
-package com.example.securitymvctemplate.model;
+package com.example.securitymvctemplate.common.model;
 
 import lombok.Getter;
 import lombok.Setter;

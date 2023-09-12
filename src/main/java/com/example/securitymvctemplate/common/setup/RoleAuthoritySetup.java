@@ -1,15 +1,13 @@
-package com.example.securitymvctemplate.setup;
+package com.example.securitymvctemplate.common.setup;
 
 import com.example.securitymvctemplate.authority.AuthorityEntity;
 import com.example.securitymvctemplate.authority.AuthorityRepository;
-import com.example.securitymvctemplate.authority.AuthorityTitleRepository;
-import com.example.securitymvctemplate.entities.UserEntity;
-import com.example.securitymvctemplate.repositories.UserEntityRepository;
+import com.example.securitymvctemplate.common.entities.UserEntity;
+import com.example.securitymvctemplate.common.repositories.UserEntityRepository;
 import com.example.securitymvctemplate.role.Role;
 import com.example.securitymvctemplate.role.RoleRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.security.crypto.password.PasswordEncoder;

@@ -1,8 +1,9 @@
-package com.example.securitymvctemplate.services;
+package com.example.securitymvctemplate.common.services;
 
 import com.example.securitymvctemplate.authority.AuthorityEntity;
-import com.example.securitymvctemplate.entities.UserEntity;
+import com.example.securitymvctemplate.common.entities.UserEntity;
 import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -16,11 +17,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-@Slf4j
+@RequiredArgsConstructor
 public class MyUserDetailsService implements UserDetailsService {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
 
     @Override
     @Transactional

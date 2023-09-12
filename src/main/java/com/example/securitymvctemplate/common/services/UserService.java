@@ -1,16 +1,14 @@
-package com.example.securitymvctemplate.services;
+package com.example.securitymvctemplate.common.services;
 
-import com.example.securitymvctemplate.entities.UserEntity;
-import com.example.securitymvctemplate.model.SignupRequest;
-import com.example.securitymvctemplate.repositories.UserEntityRepository;
+import com.example.securitymvctemplate.common.entities.UserEntity;
+import com.example.securitymvctemplate.common.model.SignupRequest;
+import com.example.securitymvctemplate.common.repositories.UserEntityRepository;
 import com.example.securitymvctemplate.role.Role;
 import com.example.securitymvctemplate.role.RoleRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -19,15 +17,14 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
+@RequiredArgsConstructor
 public class UserService {
-    @Autowired
-    private UserEntityRepository userRepository;
 
-    @Autowired
-    private RoleRepository roleRepository;
+    private final UserEntityRepository userRepository;
 
-    @Autowired
-    private BCryptPasswordEncoder encoder;
+    private final RoleRepository roleRepository;
+
+    private final BCryptPasswordEncoder encoder;
 
     public UserEntity findUserByUsername(String username) {
         return userRepository.findByUserNameIgnoreCase(username.toLowerCase());

@@ -1,15 +1,13 @@
 package com.example.securitymvctemplate.role;
 
 import com.example.securitymvctemplate.authority.AuthorityEntity;
-import com.example.securitymvctemplate.entities.UserEntity;
+import com.example.securitymvctemplate.common.entities.UserEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.Type;
-import org.springframework.stereotype.Component;
 
 import java.util.Collection;
 import java.util.List;
