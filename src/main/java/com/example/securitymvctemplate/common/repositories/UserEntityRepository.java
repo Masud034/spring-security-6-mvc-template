@@ -12,6 +12,4 @@ public interface UserEntityRepository extends JpaRepository<UserEntity, UUID> {
 	Boolean existsByUserNameIgnoreCase(String username);
 	
 	UserEntity findByUserNameIgnoreCase(String username);
-
-	UserEntity findByUserName(String username);
 }

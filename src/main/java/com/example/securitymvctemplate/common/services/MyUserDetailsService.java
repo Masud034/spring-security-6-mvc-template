@@ -2,10 +2,8 @@ package com.example.securitymvctemplate.common.services;
 
 import com.example.securitymvctemplate.authority.AuthorityEntity;
 import com.example.securitymvctemplate.common.entities.UserEntity;
+import com.example.securitymvctemplate.common.repositories.UserEntityRepository;
 import jakarta.transaction.Transactional;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,16 +15,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class MyUserDetailsService implements UserDetailsService {
 
-    private final UserService userService;
+    private final UserEntityRepository userEntityRepository;
+
+    public MyUserDetailsService(UserEntityRepository userEntityRepository) {
+        this.userEntityRepository = userEntityRepository;
+    }
 
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        UserEntity userEntity = userService.findUserByUsername(username.toLowerCase());
+        UserEntity userEntity = userEntityRepository.findByUserNameIgnoreCase(username);
 
         if (userEntity == null || !userEntity.isStatus()) {
             throw new UsernameNotFoundException("User Not Found or Inactive");

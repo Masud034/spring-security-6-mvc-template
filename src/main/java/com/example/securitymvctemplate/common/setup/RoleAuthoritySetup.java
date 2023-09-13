@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-@RequiredArgsConstructor
 public class RoleAuthoritySetup {
 
     private final AuthorityRepository authorityRepository;
@@ -27,6 +26,13 @@ public class RoleAuthoritySetup {
     private final PasswordEncoder encoder;
 
     private final UserEntityRepository userEntityRepository;
+
+    public RoleAuthoritySetup(AuthorityRepository authorityRepository, RoleRepository roleRepository, PasswordEncoder encoder, UserEntityRepository userEntityRepository) {
+        this.authorityRepository = authorityRepository;
+        this.roleRepository = roleRepository;
+        this.encoder = encoder;
+        this.userEntityRepository = userEntityRepository;
+    }
 
     @EventListener
     @Transactional
